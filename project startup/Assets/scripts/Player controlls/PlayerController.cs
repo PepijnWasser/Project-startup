@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         croach();
         ChangeHitbox();
         compositeAbility.HandleAbility(gameObject, light);
-        Debug.Log(croached);
+        //Debug.Log(croached);
     }
 
     private bool IsGrounded()
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider_2d.bounds.center, boxCollider_2d.bounds.size, 0f, Vector2.down, 0.1f, platformMask);
         return raycastHit2D.collider != null;
     }
-
+    
     void ChangeHitbox()
     {
         BoxCollider2D collider = GetComponent<BoxCollider2D>();
@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
             collider.offset = new Vector2(0, 0);
         }
     }
-
+    
     void croach()
     {
         if (Input.GetKeyDown(KeyCode.LeftControl))
