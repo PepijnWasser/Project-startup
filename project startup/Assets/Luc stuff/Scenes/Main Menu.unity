@@ -489,7 +489,7 @@ PrefabInstance:
     - target: {fileID: 3187733044926119401, guid: bfa5958e5859ec942a3c290137b8cc4d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3187733044926119402, guid: bfa5958e5859ec942a3c290137b8cc4d,
         type: 3}
@@ -570,7 +570,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b1cb467de1917d14eac1f78283dad369,
+      objectReference: {fileID: 21300000, guid: a29738467711a5e4197d8b48a271c1c2,
         type: 3}
     - target: {fileID: 3187733045785175138, guid: bfa5958e5859ec942a3c290137b8cc4d,
         type: 3}
@@ -711,7 +711,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b1cb467de1917d14eac1f78283dad369,
+      objectReference: {fileID: 21300000, guid: 96d9375fffcc9604a8c302fc9d131853,
         type: 3}
     - target: {fileID: 8284276243627538564, guid: bfa5958e5859ec942a3c290137b8cc4d,
         type: 3}
@@ -732,7 +732,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b1cb467de1917d14eac1f78283dad369,
+      objectReference: {fileID: 21300000, guid: a29738467711a5e4197d8b48a271c1c2,
         type: 3}
     - target: {fileID: 8284276243627538567, guid: bfa5958e5859ec942a3c290137b8cc4d,
         type: 3}
@@ -1372,7 +1372,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b1cb467de1917d14eac1f78283dad369,
+      objectReference: {fileID: 21300000, guid: 96d9375fffcc9604a8c302fc9d131853,
         type: 3}
     - target: {fileID: 8284276244858589802, guid: bfa5958e5859ec942a3c290137b8cc4d,
         type: 3}
@@ -1598,7 +1598,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b1cb467de1917d14eac1f78283dad369,
+      objectReference: {fileID: 21300000, guid: a29738467711a5e4197d8b48a271c1c2,
         type: 3}
     - target: {fileID: 8284276245249492790, guid: bfa5958e5859ec942a3c290137b8cc4d,
         type: 3}

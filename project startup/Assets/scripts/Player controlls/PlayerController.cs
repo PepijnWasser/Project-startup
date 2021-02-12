@@ -26,7 +26,12 @@ public class PlayerController : MonoBehaviour
     public float sizeYCroached;
     public float sizeYstanding;
 
+    //LUC
+    bool isJumping;
+    private float jumpTimeCounter;
+    public float jumpTime;
 
+    //END LUC
     private void Start()
     {
         rigidBody_2d = transform.gameObject.GetComponent<Rigidbody2D>();
@@ -41,8 +46,28 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             rigidBody_2d.velocity = Vector2.up * jumpVelocity;
+            jumpTimeCounter = jumpTime;
+            isJumping = true;
             croached = false;
         }
+        // LUC
+        if (Input.GetKey(KeyCode.Space) && isJumping == true)
+        {
+           if (jumpTimeCounter>0)
+           {
+                rigidBody_2d.velocity += Vector2.up * jumpVelocity * Time.deltaTime;
+                jumpTimeCounter -= Time.deltaTime;
+            }
+
+           else {
+               isJumping = false;
+           }
+           if (Input.GetKeyUp(KeyCode.Space))
+           {
+               isJumping = false;
+           }        
+        }
+        //END LUC
         Movement();
         croach();
         ChangeHitbox();
@@ -136,7 +161,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (IsGrounded())
                 {
-                    rigidBody_2d.velocity = new Vector2(0, rigidBody_2d.velocity.y);
+                   rigidBody_2d.velocity = new Vector2(0, rigidBody_2d.velocity.y);
                 }
 
             }
