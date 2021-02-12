@@ -10,14 +10,13 @@ public class ExpandBall : Ability
     private float currentScaleTime = 0;
 
     bool expendAnimation = false;
-    Vector3 originalScale;
+    public Vector3 originalScale;
 
     public override void HandleAbility(GameObject player, GameObject light)
     {
         if (Input.GetKeyDown(KeyCode.R) && !expendAnimation)
         {
             expendAnimation = true;
-            originalScale = light.transform.localScale;
         }
         if (expendAnimation)
         {
@@ -37,6 +36,10 @@ public class ExpandBall : Ability
                 expendAnimation = false;
                 currentScaleTime = 0;
             }
+        }
+        else
+        {
+             light.transform.localScale = originalScale;
         }
     }
 }
