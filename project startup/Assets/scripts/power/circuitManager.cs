@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class circuitManager : MonoBehaviour
 {
-    public conduit[] connectedConduits;
+    public Conduit[] connectedConduits;
     public bool powered = false;
     float secondCounter = 0;
 
@@ -36,7 +36,7 @@ public class circuitManager : MonoBehaviour
     {
         if (connectedConduits.Length != 0)
         {
-            foreach (conduit conduit in connectedConduits)
+            foreach (Conduit conduit in connectedConduits)
             {
                 if (conduit.Activated)
                 {
@@ -52,7 +52,7 @@ public class circuitManager : MonoBehaviour
     {
         if(connectedConduits.Length != 0)
         {
-            foreach(conduit conduit in connectedConduits)
+            foreach(Conduit conduit in connectedConduits)
             {
                 conduit.powered = true;
             }
@@ -63,7 +63,7 @@ public class circuitManager : MonoBehaviour
     {
         if (connectedConduits.Length != 0)
         {
-            foreach (conduit conduit in connectedConduits)
+            foreach (Conduit conduit in connectedConduits)
             {
                 conduit.powered = false;
             }

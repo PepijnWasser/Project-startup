@@ -18,23 +18,24 @@ public class ShockBall : Ability
         {
             ShowShockEffect();
             playingShockEffect = true;
+        }
+        if(playingShockEffect)
+        {   
             Collider2D collider = Physics2D.OverlapCircle(light.transform.position, light.transform.localScale.x / 2, layerMask);
             if (collider != null)
             {
-                if (collider.gameObject.GetComponent<conduit>() != null)
+                if (collider.gameObject.GetComponent<Conduit>() != null)
                 {
-                    collider.gameObject.GetComponent<conduit>().Activated = true;     
+                    collider.gameObject.GetComponent<Conduit>().Activated = true;
+                    Debug.Log("tester");
                 }
             }
-        }
-        else if(playingShockEffect)
-        {
             secondCounter += Time.deltaTime;
             if (secondCounter > 2)
             {
                 secondCounter = 0;
                 playingShockEffect = false;
-                CircleParticle.GetComponent<VisualEffect>().SetBool("activeLightning", false);
+                HideShockEffect();
             }
         }
     }
@@ -42,5 +43,10 @@ public class ShockBall : Ability
     void ShowShockEffect()
     {
         CircleParticle.GetComponent<VisualEffect>().SetBool("activeLightning", true);
+    }
+
+    void HideShockEffect()
+    {
+        CircleParticle.GetComponent<VisualEffect>().SetBool("activeLightning", false);
     }
 }

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class conduit : MonoBehaviour
+public class Conduit : MonoBehaviour
 {
     public bool powered = false;
     public bool Activated = false;
     public Material matUnpowered;
     public Material matPowered;
 
-    MeshRenderer renderer;
+    protected MeshRenderer renderer;
 
     private void Start()
     {
@@ -27,4 +27,5 @@ public class conduit : MonoBehaviour
             renderer.material = matUnpowered;
         }
     }
+
 }
