@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Light
+  - Character
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Platforms
   - Circuit
   - Light
-  - 
+  - Player
   - 
   - 
   - 

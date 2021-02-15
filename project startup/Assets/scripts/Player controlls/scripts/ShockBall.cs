@@ -13,7 +13,6 @@ public class ShockBall : Ability
 
     public override void HandleAbility(GameObject player, GameObject light)
     {
-        Debug.Log(light.name);
         CircleParticle = GameObject.Find("CircleEffect");
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -22,14 +21,12 @@ public class ShockBall : Ability
         }
         if(playingShockEffect)
         {
-            Debug.Log("shocking");
             Collider2D collider = Physics2D.OverlapCircle(light.transform.position, light.transform.localScale.x / 2, layerMask);
             if (collider != null)
             {
                 if (collider.gameObject.GetComponent<Conduit>() != null)
                 {
                     collider.gameObject.GetComponent<Conduit>().Activated = true;
-                    Debug.Log("tester");
                 }
             }
             secondCounter += Time.deltaTime;
