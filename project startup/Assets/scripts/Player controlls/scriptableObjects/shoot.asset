@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: shoot
   m_EditorClassIdentifier: 
   shootDistance: 10
-  lerpTimeShoot: 0.5
+  lerpTimeShoot: 0.8

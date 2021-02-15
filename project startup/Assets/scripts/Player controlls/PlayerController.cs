@@ -30,7 +30,8 @@ public class PlayerController : MonoBehaviour
     bool isJumping;
     private float jumpTimeCounter;
     public float jumpTime;
-
+    public float runSpeed;
+    public float walkSpeed;
     //END LUC
     private void Start()
     {
@@ -66,6 +67,13 @@ public class PlayerController : MonoBehaviour
            {
                isJumping = false;
            }        
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            moveSpeed = runSpeed;
+        } else
+        {
+            moveSpeed = walkSpeed;
         }
         //END LUC
         Movement();

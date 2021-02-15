@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbbf7f15db282f24b84ab8ad50cd2bf6, type: 3}
   m_Name: Expand
   m_EditorClassIdentifier: 
-  expandMultiplier: 2
-  scaleTime: 0.5
+  expandMultiplier: 4
+  scaleTime: 2
   originalScale: {x: 4, y: 4, z: 1}
