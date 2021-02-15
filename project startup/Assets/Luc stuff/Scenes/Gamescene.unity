@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connectedConduits:
-  - {fileID: 1108575760}
+  - {fileID: 1108575755}
   powered: 0
 --- !u!4 &122109434
 Transform:
@@ -1469,7 +1469,7 @@ GameObject:
   - component: {fileID: 1108575758}
   - component: {fileID: 1108575757}
   - component: {fileID: 1108575756}
-  - component: {fileID: 1108575760}
+  - component: {fileID: 1108575755}
   m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
@@ -1477,6 +1477,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1108575755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108575754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 964132f82e8c5e7458a2ec95d052413d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powered: 0
+  Activated: 0
+  matUnpowered: {fileID: 2100000, guid: 6c86d6ebbd0dd134b86ccecf2de26c30, type: 2}
+  matPowered: {fileID: 2100000, guid: 246464ff093b2ad499e98f904265cfb0, type: 2}
+  growTime: 3
+  sizeMultiplier: 2
 --- !u!61 &1108575756
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1564,22 +1582,6 @@ Transform:
   m_Father: {fileID: 122109434}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1108575760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1108575754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 212b31e4677aad94395bf044ad8e6f03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powered: 0
-  Activated: 0
-  matUnpowered: {fileID: 2100000, guid: 6c86d6ebbd0dd134b86ccecf2de26c30, type: 2}
-  matPowered: {fileID: 2100000, guid: 246464ff093b2ad499e98f904265cfb0, type: 2}
 --- !u!1 &1132101173
 GameObject:
   m_ObjectHideFlags: 0
@@ -3805,6 +3807,9 @@ MonoBehaviour:
   compositeAbility: {fileID: 11400000, guid: e63c56806c842ff429c4d2c159bc241c, type: 2}
   sizeYCroached: 1
   sizeYstanding: 3
+  jumpTime: 0
+  runSpeed: 5
+  walkSpeed: 7
 --- !u!61 &3055225093234276682
 BoxCollider2D:
   m_ObjectHideFlags: 0
