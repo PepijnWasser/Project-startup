@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D boxCollider_2d;
     private SpriteRenderer renderer;
 
-    private GameObject light;
+    public GameObject light;
 
     public CompositeAbility compositeAbility;
 
@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
         rigidBody_2d = transform.gameObject.GetComponent<Rigidbody2D>();
         boxCollider_2d = transform.gameObject.GetComponent<BoxCollider2D>();
         renderer = transform.gameObject.GetComponent<SpriteRenderer>();
-        light = GameObject.FindGameObjectWithTag("Light");
     }
 
     // Update is called once per frame
@@ -47,7 +46,6 @@ public class PlayerController : MonoBehaviour
         croach();
         ChangeHitbox();
         compositeAbility.HandleAbility(gameObject, light);
-        //Debug.Log(croached);
     }
 
     private bool IsGrounded()
