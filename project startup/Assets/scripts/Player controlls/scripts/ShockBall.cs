@@ -20,14 +20,13 @@ public class ShockBall : Ability
             playingShockEffect = true;
         }
         if(playingShockEffect)
-        {   
+        {
             Collider2D collider = Physics2D.OverlapCircle(light.transform.position, light.transform.localScale.x / 2, layerMask);
             if (collider != null)
             {
                 if (collider.gameObject.GetComponent<Conduit>() != null)
                 {
                     collider.gameObject.GetComponent<Conduit>().Activated = true;
-                    Debug.Log("tester");
                 }
             }
             secondCounter += Time.deltaTime;
