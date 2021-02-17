@@ -13,7 +13,9 @@ public class Crystall : Conduit
 
     private void Start()
     {
-      //  renderer = gameObject.GetComponent<MeshRenderer>();
+
+        //renderer = gameObject.GetComponent<MeshRenderer>();
+
         originalScale = transform.localScale;
         originalPosition = transform.position;
     }
@@ -22,7 +24,9 @@ public class Crystall : Conduit
     {
         if (powered)
         {
-      //      renderer.material = matPowered;
+
+            //renderer.material = matPowered;
+
             currentGrowTime += Time.deltaTime;
             var percentage = currentGrowTime / growTime;
             if(percentage > 1)
@@ -34,7 +38,9 @@ public class Crystall : Conduit
         }
         else
         {
-       //     renderer.material = matUnpowered;
+
+            //renderer.material = matUnpowered;
+
         }
     }
 }
