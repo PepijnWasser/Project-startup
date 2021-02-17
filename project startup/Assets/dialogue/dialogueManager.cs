@@ -10,6 +10,8 @@ public class dialogueManager : MonoBehaviour
     public float textSpeed;
     public float nextStringDelay;
 
+    public bool playOnStart;
+
     public string[] text;
     string testString;
 
@@ -20,12 +22,18 @@ public class dialogueManager : MonoBehaviour
     int stringWeAreOn = 0;
 
     int endNumber = 0;
+
+    public bool done;
     
 
     // Start is called before the first frame update
     void Start()
     {
         PrepareNextString(text[stringWeAreOn]);
+        if (playOnStart)
+        {
+            PlayUntil(text.Length);
+        }
     }
 
     // Update is called once per frame
@@ -55,6 +63,7 @@ public class dialogueManager : MonoBehaviour
                     }
                     else
                     {
+                        done = true;
                         textBox.SetActive(false);
                     }
                 }
