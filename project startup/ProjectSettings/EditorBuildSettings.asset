@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Luc stuff/Scenes/Gamescene.unity
     guid: 2ecf65e49d47eed468861c1fd9f56d01
+  - enabled: 1
+    path: Assets/Luc stuff/Scenes/SecondLevel.unity
+    guid: 31e1e10bac1c68c46a71b9b0285e76a5
   m_configObjects: {}
