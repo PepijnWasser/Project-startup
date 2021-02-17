@@ -8,7 +8,7 @@ public class EndOfLevelTrigger : MonoBehaviour
     public LevelChanger levelChanger;
     public string levelToFadeTo;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision.gameObject.name);
         if (collision.gameObject.tag == tag)
