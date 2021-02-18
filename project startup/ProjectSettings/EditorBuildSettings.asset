@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Luc stuff/Scenes/Main Menu.unity
     guid: 08c801868d6b2e64fb92f61ad601bf86
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Luc stuff/Scenes/Gamescene.unity
-    guid: 2ecf65e49d47eed468861c1fd9f56d01
+    path: Assets/Luc stuff/Scenes/EndScene.unity
+    guid: 953675b57f336024990113b44a5cac56
   - enabled: 1
     path: Assets/Luc stuff/Scenes/SecondLevel.unity
     guid: 31e1e10bac1c68c46a71b9b0285e76a5

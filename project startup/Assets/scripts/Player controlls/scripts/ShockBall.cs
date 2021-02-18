@@ -7,6 +7,8 @@ using UnityEngine.VFX;
 public class ShockBall : Ability
 {
     public LayerMask layerMask;
+    public AudioManager audioManager;
+
     GameObject CircleParticle;
     float secondCounter = 0;
     bool playingShockEffect = false;
