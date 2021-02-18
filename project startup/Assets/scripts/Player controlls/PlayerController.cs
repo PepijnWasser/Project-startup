@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public delegate void myEvent(bool value);
+    public static event myEvent moving;
+
+
     //movement
     [SerializeField]
     private LayerMask platformMask;
@@ -11,9 +15,6 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public float jumpVelocity = 10f;
     public float midAirControl = 1.0f;
-
-    bool croached = false;
-    public float croachmultiplier = 0.5f;
 
     private Rigidbody2D rigidBody_2d;
     private BoxCollider2D boxCollider_2d;
@@ -23,16 +24,12 @@ public class PlayerController : MonoBehaviour
 
     public CompositeAbility compositeAbility;
 
-    public float sizeYCroached;
-    public float sizeYstanding;
-
-    //LUC
     bool isJumping;
     private float jumpTimeCounter;
     public float jumpTime;
     public float runSpeed;
     public float walkSpeed;
-    //END LUC
+
     private void Start()
     {
         rigidBody_2d = transform.gameObject.GetComponent<Rigidbody2D>();
@@ -41,7 +38,6 @@ public class PlayerController : MonoBehaviour
         light = GameObject.FindGameObjectWithTag("Light");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
@@ -49,9 +45,7 @@ public class PlayerController : MonoBehaviour
             rigidBody_2d.velocity = Vector2.up * jumpVelocity;
             jumpTimeCounter = jumpTime;
             isJumping = true;
-            croached = false;
         }
-        // LUC
         if (Input.GetKey(KeyCode.Space) && isJumping == true)
         {
            if (jumpTimeCounter>0)
@@ -75,48 +69,14 @@ public class PlayerController : MonoBehaviour
         {
             moveSpeed = walkSpeed;
         }
-        //END LUC
         Movement();
-        croach();
-        ChangeHitbox();
         compositeAbility.HandleAbility(gameObject, light);
-        //Debug.Log(croached);
     }
 
     private bool IsGrounded()
     {
         RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider_2d.bounds.center, boxCollider_2d.bounds.size, 0f, Vector2.down, 0.1f, platformMask);
         return raycastHit2D.collider != null;
-    }
-    
-    void ChangeHitbox()
-    {
-        BoxCollider2D collider = GetComponent<BoxCollider2D>();
-        if(croached)
-        {
-            collider.size = new Vector2(collider.size.x, sizeYCroached);
-            collider.offset = new Vector2(0, (sizeYstanding - sizeYCroached) / 2);
-        }
-        else
-        {
-            collider.size = new Vector2(collider.size.x, sizeYstanding);
-            collider.offset = new Vector2(0, 0);
-        }
-    }
-    
-    void croach()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
-        {
-            if (croached)
-            {
-                croached = false;
-            }
-            else
-            {
-                croached = true;
-            }
-        }
     }
 
     void Movement()
@@ -126,20 +86,14 @@ public class PlayerController : MonoBehaviour
             renderer.flipX = true;
             if (IsGrounded())
             {
-                if (croached)
-                {
-                    rigidBody_2d.velocity = new Vector2(-moveSpeed * croachmultiplier, rigidBody_2d.velocity.y);
-                }
-                else
-                {
-                    rigidBody_2d.velocity = new Vector2(-moveSpeed, rigidBody_2d.velocity.y);
-                }
-
+                rigidBody_2d.velocity = new Vector2(-moveSpeed, rigidBody_2d.velocity.y);
+                moving?.Invoke(true);
             }
             else
             {
                 rigidBody_2d.velocity += new Vector2(-moveSpeed * midAirControl * Time.deltaTime, 0);
                 rigidBody_2d.velocity = new Vector2(Mathf.Clamp(rigidBody_2d.velocity.x, -moveSpeed, moveSpeed), rigidBody_2d.velocity.y);
+                moving?.Invoke(false);
             }
         }  
         else
@@ -149,20 +103,14 @@ public class PlayerController : MonoBehaviour
                 renderer.flipX = false;
                 if (IsGrounded())
                 {
-                    if (croached)
-                    {
-                        rigidBody_2d.velocity = new Vector2(moveSpeed * croachmultiplier, rigidBody_2d.velocity.y);
-                    }
-                    else
-                    {
-                        rigidBody_2d.velocity = new Vector2(moveSpeed, rigidBody_2d.velocity.y);
-                    }
-
+                    rigidBody_2d.velocity = new Vector2(moveSpeed, rigidBody_2d.velocity.y);
+                    moving?.Invoke(true);
                 }
                 else
                 {
                     rigidBody_2d.velocity += new Vector2(moveSpeed * midAirControl * Time.deltaTime, 0);
                     rigidBody_2d.velocity = new Vector2(Mathf.Clamp(rigidBody_2d.velocity.x, -moveSpeed, moveSpeed), rigidBody_2d.velocity.y);
+                    moving?.Invoke(false);
                 }
             }
             else
@@ -171,7 +119,7 @@ public class PlayerController : MonoBehaviour
                 {
                    rigidBody_2d.velocity = new Vector2(0, rigidBody_2d.velocity.y);
                 }
-
+                moving?.Invoke(false);
             }
         }
     }

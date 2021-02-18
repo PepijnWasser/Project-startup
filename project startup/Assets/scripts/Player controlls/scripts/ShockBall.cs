@@ -5,7 +5,6 @@ using UnityEngine.VFX;
 
 [CreateAssetMenu(menuName = "Ability/Shock")]
 public class ShockBall : Ability
-
 {
     public delegate void myEvent(bool needToPlay);
     public static event myEvent OnShockBallPlaying;
@@ -14,13 +13,11 @@ public class ShockBall : Ability
     public LayerMask layerMask;
     public AudioManager audioManager;
 
-    GameObject CircleParticle;
     float secondCounter = 0;
     bool playingShockEffect = false;
 
     public override void HandleAbility(GameObject player, GameObject light)
     {
-        CircleParticle = GameObject.Find("CircleEffect");
         if (Input.GetKeyDown(KeyCode.E))
         {
             ShowShockEffect();
@@ -48,13 +45,11 @@ public class ShockBall : Ability
 
     void ShowShockEffect()
     {
-        CircleParticle.GetComponent<VisualEffect>().SetBool("activeLightning", true);
         OnShockBallPlaying?.Invoke(true);
     }
 
     void HideShockEffect()
     {
         OnShockBallPlaying?.Invoke(false);
-        CircleParticle.GetComponent<VisualEffect>().SetBool("activeLightning", false);
     }
 }

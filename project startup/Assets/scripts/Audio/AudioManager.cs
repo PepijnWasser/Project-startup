@@ -6,41 +6,66 @@ using UnityEngine.VFX;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioSource audioSource;
-    public bool needToPlay;
-    public GameObject obj;
+    public AudioSource audioSourceShock;
+    public AudioSource audioSourceMoving;
+    bool needToPlayShock;
+    public bool needToPlayMoving = false;
+
 
     private void OnEnable()
     {
-        ShockBall.OnShockBallPlaying += UpdateSound;
+        ShockBall.OnShockBallPlaying += UpdateShock;
+        PlayerController.moving += UpdateMoving;
     }
 
     private void OnDisable()
     {
-        ShockBall.OnShockBallPlaying -= UpdateSound;
+        ShockBall.OnShockBallPlaying -= UpdateShock;
+        PlayerController.moving -= UpdateMoving;
     }
 
     void Update()
     {
-        if (needToPlay)
+        if (needToPlayShock)
         {
-            if (!audioSource.isPlaying)
+            if (!audioSourceShock.isPlaying)
             {
-                audioSource.Play();
+                audioSourceShock.Play();
             }
         }
         else
         {
-            if (audioSource.isPlaying)
+            if (audioSourceShock.isPlaying)
             {
-                audioSource.Stop();
+                audioSourceShock.Stop();
             }
-
         }
+
+        if (needToPlayMoving)
+        {
+            if (!audioSourceMoving.isPlaying)
+            {
+                audioSourceMoving.Play();
+            }
+        }
+        else
+        {
+            if (audioSourceMoving.isPlaying)
+            {
+                audioSourceMoving.Stop();
+            }
+        }
+
     }
 
-    void UpdateSound(bool value)
+    void UpdateShock(bool value)
     {
-        needToPlay = value;
+        needToPlayShock = value;
+    }
+
+    void UpdateMoving(bool value)
+    {
+        Debug.Log(value);
+        needToPlayMoving = value;
     }
 }
