@@ -496,7 +496,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1344235235
 GameObject:
@@ -579,6 +579,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1619563558 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8294779763204575370, guid: 7d06dd489e3caa34db5fcdee246d292d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2105507422}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1619563562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619563558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.11372548, g: 0.21644686, b: 0.3764706, a: 0.5}
+  m_EffectDistance: {x: -4, y: 1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1629325979
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,7 +664,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2084378919 stripped
 GameObject:
@@ -698,12 +719,17 @@ PrefabInstance:
     - target: {fileID: 8294779762605450652, guid: 7d06dd489e3caa34db5fcdee246d292d,
         type: 3}
       propertyPath: text.Array.data[1]
-      value: we hope you stay with is throughout this adventure
+      value: we hope you stay with us throughout this adventure
       objectReference: {fileID: 0}
     - target: {fileID: 8294779762605450652, guid: 7d06dd489e3caa34db5fcdee246d292d,
         type: 3}
       propertyPath: text.Array.data[2]
       value: If you have comments or feedback be sure to message us on our discord
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294779762605450652, guid: 7d06dd489e3caa34db5fcdee246d292d,
+        type: 3}
+      propertyPath: textSpeed
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 8294779762605450654, guid: 7d06dd489e3caa34db5fcdee246d292d,
         type: 3}
@@ -833,17 +859,68 @@ PrefabInstance:
     - target: {fileID: 8294779763204575368, guid: 7d06dd489e3caa34db5fcdee246d292d,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 60
+      value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 8294779763204575368, guid: 7d06dd489e3caa34db5fcdee246d292d,
         type: 3}
       propertyPath: m_FontData.m_MaxSize
-      value: 90
+      value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 8294779763204575368, guid: 7d06dd489e3caa34db5fcdee246d292d,
         type: 3}
       propertyPath: m_FontData.m_MinSize
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294779763204575368, guid: 7d06dd489e3caa34db5fcdee246d292d,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.1372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294779763204575368, guid: 7d06dd489e3caa34db5fcdee246d292d,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.7058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294779763204575368, guid: 7d06dd489e3caa34db5fcdee246d292d,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.6783425
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294779763204575368, guid: 7d06dd489e3caa34db5fcdee246d292d,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: a25ddb9caa549d242b5df6143d9b976b,
+        type: 3}
+    - target: {fileID: 8294779763204575368, guid: 7d06dd489e3caa34db5fcdee246d292d,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294779763204575368, guid: 7d06dd489e3caa34db5fcdee246d292d,
+        type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294779763204575368, guid: 7d06dd489e3caa34db5fcdee246d292d,
+        type: 3}
+      propertyPath: m_FontData.m_LineSpacing
+      value: 0.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294779763204575368, guid: 7d06dd489e3caa34db5fcdee246d292d,
+        type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294779763204575368, guid: 7d06dd489e3caa34db5fcdee246d292d,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294779763204575371, guid: 7d06dd489e3caa34db5fcdee246d292d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 8294779763602191496, guid: 7d06dd489e3caa34db5fcdee246d292d,
         type: 3}
