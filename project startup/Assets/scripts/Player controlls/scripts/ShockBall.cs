@@ -5,7 +5,12 @@ using UnityEngine.VFX;
 
 [CreateAssetMenu(menuName = "Ability/Shock")]
 public class ShockBall : Ability
+
 {
+    public delegate void myEvent(bool needToPlay);
+    public static event myEvent OnShockBallPlaying;
+
+
     public LayerMask layerMask;
     public AudioManager audioManager;
 
@@ -44,10 +49,12 @@ public class ShockBall : Ability
     void ShowShockEffect()
     {
         CircleParticle.GetComponent<VisualEffect>().SetBool("activeLightning", true);
+        OnShockBallPlaying?.Invoke(true);
     }
 
     void HideShockEffect()
     {
+        OnShockBallPlaying?.Invoke(false);
         CircleParticle.GetComponent<VisualEffect>().SetBool("activeLightning", false);
     }
 }

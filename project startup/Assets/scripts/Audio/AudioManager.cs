@@ -10,9 +10,18 @@ public class AudioManager : MonoBehaviour
     public bool needToPlay;
     public GameObject obj;
 
+    private void OnEnable()
+    {
+        ShockBall.OnShockBallPlaying += UpdateSound;
+    }
+
+    private void OnDisable()
+    {
+        ShockBall.OnShockBallPlaying -= UpdateSound;
+    }
+
     void Update()
     {
-        needToPlay = obj.GetComponent<VisualEffect>().GetBool("activeLightning");
         if (needToPlay)
         {
             if (!audioSource.isPlaying)
@@ -28,5 +37,10 @@ public class AudioManager : MonoBehaviour
             }
 
         }
+    }
+
+    void UpdateSound(bool value)
+    {
+        needToPlay = value;
     }
 }
