@@ -11,6 +11,7 @@ public class LevelChanger : MonoBehaviour
 
     public void FadeToLevel(string levelName)
     {
+        Debug.Log("fading");
         animator.SetTrigger("fade out");
         levelToLoad = levelName;
     }
