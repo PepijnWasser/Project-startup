@@ -65,7 +65,6 @@ public class AudioManager : MonoBehaviour
 
     void UpdateMoving(bool value)
     {
-        Debug.Log(value);
         needToPlayMoving = value;
     }
 }
