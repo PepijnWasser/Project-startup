@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public delegate void myEvent(bool value);
-    public static event myEvent moving;
+    public delegate void myMove(bool value);
+    public static event myMove moving;
+
+    public delegate void myJump(bool value);
+    public static event myJump jumping;
 
 
     //movement
@@ -46,31 +49,44 @@ public class PlayerController : MonoBehaviour
             jumpTimeCounter = jumpTime;
             isJumping = true;
         }
+
+        //asume midair
         if (Input.GetKey(KeyCode.Space) && isJumping == true)
         {
-           if (jumpTimeCounter>0)
+           if (jumpTimeCounter > 0)
            {
                 rigidBody_2d.velocity += Vector2.up * jumpVelocity * Time.deltaTime;
                 jumpTimeCounter -= Time.deltaTime;
-            }
-
-           else {
+                jumping?.Invoke(true);
+           }
+           else
+           {
                isJumping = false;
            }
+
            if (Input.GetKeyUp(KeyCode.Space))
            {
                isJumping = false;
            }        
         }
+
+        //sprinting
         if (Input.GetKey(KeyCode.LeftShift))
         {
             moveSpeed = runSpeed;
-        } else
+        } 
+        else
         {
             moveSpeed = walkSpeed;
         }
+
         Movement();
         compositeAbility.HandleAbility(gameObject, light);
+
+        if (IsGrounded())
+        {
+            jumping?.Invoke(false);
+        }
     }
 
     private bool IsGrounded()
