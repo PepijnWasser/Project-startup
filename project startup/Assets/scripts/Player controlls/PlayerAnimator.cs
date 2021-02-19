@@ -10,12 +10,14 @@ public class PlayerAnimator : MonoBehaviour
     {
         PlayerController.moving += MovingAnimation;
         PlayerController.jumping += JumpingAnimation;
+        CheckPushing.pushing += PushingAnimation;
     }
 
     private void OnDisable()
     {
         PlayerController.moving -= MovingAnimation;
         PlayerController.jumping -= JumpingAnimation;
+        CheckPushing.pushing -= PushingAnimation;
     }
 
     void MovingAnimation(bool val)
@@ -26,5 +28,10 @@ public class PlayerAnimator : MonoBehaviour
     void JumpingAnimation(bool val)
     {
         playerAnimator.SetBool("jumping", val);
+    }
+
+    void PushingAnimation(bool val)
+    {
+        playerAnimator.SetBool("pushing", val);
     }
 }

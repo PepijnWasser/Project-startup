@@ -2142,6 +2142,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: pushable rock
       objectReference: {fileID: 0}
+    - target: {fileID: 2436466019237175808, guid: c501fa32aa0d136458cbb9bbbd532f23,
+        type: 3}
+      propertyPath: m_TagString
+      value: PushableBlock
+      objectReference: {fileID: 0}
     - target: {fileID: 2436466019237175836, guid: c501fa32aa0d136458cbb9bbbd532f23,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2370,6 +2375,7 @@ GameObject:
   - component: {fileID: 524982866}
   - component: {fileID: 524982867}
   - component: {fileID: 524982868}
+  - component: {fileID: 524982869}
   m_Layer: 11
   m_Name: character
   m_TagString: Character
@@ -2644,6 +2650,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 524982867}
+--- !u!114 &524982869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524982860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0193c9872ac91844ba74986a7086b1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tag: PushableBlock
 --- !u!4 &535888870 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2436466019237175836, guid: c501fa32aa0d136458cbb9bbbd532f23,

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Light
   - Character
+  - PushableBlock
   layers:
   - Default
   - TransparentFX
